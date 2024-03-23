@@ -13,7 +13,7 @@ public class ServiceProvider {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToMany
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private CustomerUser user;
 
@@ -22,6 +22,25 @@ public class ServiceProvider {
     private String servicesLocation;
     
     private String qualification;
+
+	private String experience;
+    
+	private String availability;
+
+	private String ratings; 
+
+    public ServiceProvider(Long id, CustomerUser user, String services, String servicesLocation, String qualification, String experience, String availability, String ratings) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.services = services;
+		this.servicesLocation = servicesLocation;
+		this.qualification = qualification;
+		this.experience = experience;
+		this.availability = availability;
+		this.ratings = ratings;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -55,15 +74,6 @@ public class ServiceProvider {
 		this.servicesLocation = servicesLocation;
 	}
 
-	public ServiceProvider(Long id, CustomerUser user, String services, String servicesLocation, String qualification) {
-		super();
-		this.id = id;
-		this.user = user;
-		this.services = services;
-		this.servicesLocation = servicesLocation;
-		this.qualification = qualification;
-	}
-
 	public String getQualification() {
 		return qualification;
 	}
@@ -72,6 +82,29 @@ public class ServiceProvider {
 		this.qualification = qualification;
 	}
 
-    
+	public String getExperience() {
+		return experience;
+	}
+
+	public void setExperience(String experience) {
+		this.experience = experience;
+	}
+
+	public String getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(String availability) {
+		this.availability = availability;
+	}
+
+	public String getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(String ratings) {
+		this.ratings = ratings;
+	}
+
    
 }
